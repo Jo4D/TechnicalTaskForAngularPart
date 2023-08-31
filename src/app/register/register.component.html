@@ -1,0 +1,188 @@
+  <form #registerForm="ngForm" 
+  (ngSubmit)="addEmployee()"
+   class="form-group"> 
+     <h2 class="text-center text-primary">
+    Adding Form
+  </h2>
+  <hr>
+      <div 
+      class="form-group">
+          <input 
+          class="form-control"
+          name='firstName'
+          [(ngModel)]="model.firstName"
+           placeholder="FirstName"
+           #firstName="ngModel"
+           required
+           >
+           <span *ngIf="!firstName.valid&&firstName.touched"
+           class="help-block" style="color: red;">Please Enter A Valid Name</span>
+        </div>
+        <div 
+        class="form-group">
+          <input
+      
+           class="form-control" 
+          name='lastName'
+          [(ngModel)]="model.lastName"
+           placeholder="LastName"
+           #lastName="ngModel"
+           required
+           >
+           <span *ngIf="!lastName.valid&&firstName.touched"
+           class="help-block" style="color: red;">Please Enter A Valid Name</span>
+        </div>
+        <div 
+        class="form-group">
+          <input
+         
+           class="form-control" 
+          name='mobile'
+          [(ngModel)]="model.mobile"
+           placeholder="mobile"
+           #mobile="ngModel"
+           required
+           >
+           <span *ngIf="!mobile.valid&&mobile.touched"
+           class="help-block" style="color: red;">Please Enter A Valid Phone Number</span>
+        </div>
+        <div class="form-group">
+          <input 
+     
+          type="text"
+          class="form-control" 
+          name='dOB'
+          [(ngModel)]="model.dOB"
+          placeholder="Date Of Bith" 
+          bsDatepicker
+          [bsConfig]="bsConfig"
+          [maxDate]='maxDate'
+          #dob="ngModel"
+          required
+          >
+          <span *ngIf="!dob.valid&&dob.touched"
+           class="help-block" style="color: red;">Please Enter A Valid Date</span>
+        </div>
+      <div 
+      class="form-group">
+        <input
+      
+        type="email"
+         class="form-control"
+         name='email'
+         [(ngModel)]="model.email"
+         placeholder="Email"
+         #email="ngModel"
+         required
+         >
+         <span *ngIf="!email.valid&&email.touched"
+           class="help-block" style="color: red;">Please Enter A Valid Email</span>
+        </div>
+     
+        <div
+         class="form-group">
+          <input class="form-control"
+        
+          name='address1'
+          [(ngModel)]="model.address1"
+            placeholder="Address1"
+            #address="ngModel"
+            required
+            >
+            <span *ngIf="!address.valid&&address.touched"
+           class="help-block" style="color: red;">Please Enter A Valid Address</span>
+        </div>
+      <div class="form-group">
+          <input 
+        
+          class="form-control"
+          name='address2'
+          [(ngModel)]="model.address2"
+          placeholder="Address2">
+        </div>
+        <div 
+        class="form-group">
+          <input
+       
+           class="form-control"
+           name='city'
+           [(ngModel)]="model.city"
+           placeholder="city"
+           #city="ngModel"
+           required
+           >
+           <span *ngIf="!city.valid&&city.touched"
+           class="help-block" style="color: red;">Please Enter A Valid City</span>
+        </div>
+      <div 
+      class="form-group">
+        <input
+       
+         class="form-control"
+         name='postalCode'
+         [(ngModel)]="model.postalCode"
+         placeholder="Postal Code"
+         #postalCode="ngModel"
+         required
+         >
+         <span *ngIf="!postalCode.valid&&postalCode.touched"
+         class="help-block" style="color: red;">Please Enter A Valid Postal Code</span>
+      </div>
+    <div 
+    class="form-group">
+      <input
+    
+       class="form-control"
+       name='country'
+       [(ngModel)]="model.country"
+       placeholder="Country"
+       #country="ngModel"
+       required
+       >
+       <span *ngIf="!country.valid&&country.touched"
+       class="help-block" style="color: red;">Please Enter A Valid County</span>
+    </div>
+  
+  <div 
+  class="form-group mt-3">
+  <label  class="control-label" style="margin-right: 10px;">Gender:</label>
+  <label  class="radio-inline">Male
+  
+       <input 
+       type="radio"
+       value="Male"
+      name='gender'
+      [(ngModel)]="model.gender"
+      placeholder="Gender"
+       >
+  </label>
+  <label  class="radio-inline mx-2">Female
+       <input 
+       type="radio"
+       value="Female"
+       class="ml-3"
+      name='gender'
+      [(ngModel)]="model.gender"
+      placeholder="Gender"
+       >
+  </label>
+    </div>
+
+    <div 
+    class="form-group mt-3">
+    <label  class="control-label" style="margin-right: 10px;">Is Active:</label>
+    <label  class="form-control">
+         <input 
+         type="checkbox"
+        name='isActive'
+        [(ngModel)]="model.isActive"
+        placeholder="Gender"
+         >
+    </label>
+</div>
+      <div class="form-group text-center my-2">
+          <button [disabled]="!registerForm.valid"
+           class="btn btn-success mx-2" type="submit">Add</button>
+          <button class="btn btn-danger mx-2" (click)="cancel()">Cancel</button>
+      </div>
+  </form>
